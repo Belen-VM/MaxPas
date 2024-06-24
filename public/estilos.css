@@ -1,19 +1,16 @@
-.operaciones{
-    border: 1px solid #3f4147;
-    padding: 2em;
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
 
 body{
     margin: auto 200px;
+    
     color: #eff0f2;
     font-family: "Poppins", sans-serif;
+    background-color: black;
 }
 /* div{
     border: 1px dotted rgba(50, 30, 0, 0.5);
 } */
 main{
+    min-height: 100vh;
     background-color: #313338;
     border-radius: 0px 20px 20px 0px;   
 }
@@ -61,32 +58,68 @@ select {
     }
 }
 
+hr{
+    border: 1px outset #3f4147;
+
+}
+
+.marca{
+    background-color: #4752c4;
+    color: #ffffff ;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-inline-start: 40px
+
+}
+
+.operaciones{
+    display: none;
+    border: 1px solid #3f4147;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+#cargar-monto-tarjeta{
+    /* display: block; */
+}
 .parent{
     display: grid;
-    grid-template-columns: minmax(150px, 25%) 1fr;
+    grid-template-columns: minmax(200px, 30%) 1fr;
 }
 
 .sidebar{
     background-color: #2b2d31;
     border-radius: 20px 0px 0px 20px;
-    padding-top: 15px;
-    padding-left: 10px;
+    overflow: hidden;
     ul{
+        padding-inline-start: 30px;
         list-style-type: none;
         overflow-x: hidden;
         li{
-            padding: 0.5em;
+            
             border-bottom: 1px solid #3f4147;
             a{
+                display: block;
+                height: 100%;
+                width: 100%;
+                padding: 0.5em;
                 color: #dbd4dc;
                 text-decoration: none;
+                transition: all 0.1s ease-in-out;
             }
-        }
-        li:hover{
-            background-color: rgb(53, 55, 60);
-            transition: all 0.1s ease-in-out;
-            transform: translate(10px);
-            
+            a:hover{
+                background-color: rgb(53, 55, 60);
+                transform: translate(10px);
+                border-radius: 10px 0px 0px 10px;
+                
+            }
+            a.linkActivo{
+                background-color: #4752c4;
+                transform: translate(10px);
+                border-radius: 10px 0px 0px 10px;
+            }
         }
     }
 }

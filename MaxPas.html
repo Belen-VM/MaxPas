@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,43 @@
     <link rel="stylesheet" href="public/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <script src="data/cajas.js"></script>
     <script src="features.js"></script>
 </head>
+
 <body>
     <div class="parent">
         <div class="sidebar">
+            <div class="marca">
+                MaxPas
+            </div>
             <ul>
-                <li><a href="#">Cargar monto tarjeta</a></li>
-                <li><a href="#">Habilitar o deshabilitar tarjeta</a></li>
-                <li><a href="#">Consultar cantidad tarjetas por caja</a></li>
-                <li><a href="#">Consultar cantidad tarjetas habilitadas </a></li>
-                <li><a href="#">Consultar promedio</a></li>
-                <li><a href="#">Consultar monto total saldos anteriores</a></li>
-                <li><a href="#">Consultar monto total tarjetas habilitadas</a></li>
-                <li><a href="#">Consultar monto total tarjetas deshabilitadas</a></li>
+                <h4>Operaciones</h4>
+                <hr>
+                <li><a data-target="cargar-monto-tarjeta" class="menulink">Cargar monto tarjeta</a></li>
+                <li><a data-target="habilitada-deshabilitada" class="menulink">Habilitar o inhabilitar
+                        tarjeta</a></li>
+                <h4>Consultas</h4>
+                <hr>
+                <li><a data-target="cantidadT-caja" class="menulink">Cantidad tarjetas por caja</a>
+                </li>
+                <li><a data-target="cantidadT-habilitadas" class="menulink">Cantidad tarjetas
+                        habilitadas </a></li>
+                <li><a data-target="consultar-promedio" class="menulink">Promedio</a></li>
+                <li><a data-target="consultar-saldoA" class="menulink">Monto total saldos
+                        anteriores</a></li>
+                <li><a data-target="consultar-totalTH" class="menulink">Monto total tarjetas
+                        habilitadas</a></li>
+                <li><a data-target="consultar-totalTD" class="menulink">Monto total tarjetas
+                        inhabilitadas</a></li>
             </ul>
         </div>
         <main>
-            <div class="operaciones">
-                <h1>Cargar monto tarjeta</h1>   
+            <div class="operaciones" id="cargar-monto-tarjeta">
+                <h1>Cargar monto tarjeta</h1>
                 <form action="">
                     <select name="tarjeta" id="tarjeta">
                         <option value="1">Tarjeta 1</option>
@@ -38,8 +55,8 @@
                 </form>
                 <div class="resultados-off" id="cargarMontoTarjetasResultado"></div>
             </div>
-          <div class="operaciones">
-            <h1> Habilitar o deshabilitar tarjeta</h1> 
+            <div class="operaciones" id="habilitada-deshabilitada">
+                <h1> Habilitar o deshabilitar tarjeta</h1>
                 <form action="">
                     <select name="tarjeta" id="tarjeta">
                         <option value="1">Tarjeta 1</option>
@@ -50,8 +67,8 @@
                     <button type="button">DESHABILITAR</button>
                 </form>
             </div>
-              <div class="operaciones">
-            <h1>Consultar por la cantidad de tarjetas de pago habilitadas por cajas</h1> 
+            <div class="operaciones" id="cantidadT-caja">
+                <h1>Consultar por la cantidad de tarjetas de pago habilitadas por cajas</h1>
                 <form action="">
                     <select name="habilitada-deshabilitada" id="habilitada-deshabilitada">
                         <option value="0">DESHABILITADA</option>
@@ -64,16 +81,16 @@
                     <button type="button">CONSULTAR</button>
                 </form>
             </div>
-              <div class="operaciones">
-            <h1>Consultar cantidad de tarjetas de pago habilitadas por rango de fecha</h1> 
+            <div class="operaciones" id="cantidadT-habilitadas">
+                <h1>Consultar cantidad de tarjetas de pago habilitadas por rango de fecha</h1>
                 <form action="">
                     <input type="date" name="fecha-inicio" id="fecha-inicio">
                     <input type="date" name="fecha-fin" id="fecha-fin">
                     <button type="button">CONSULTAR</button>
                 </form>
             </div>
-              <div class="operaciones">
-            <h1>Consultar por el monto promedio de los saldos anteriores de las tarjetas de pago por caja</h1> 
+            <div class="operaciones" id="consultar-promedio">
+                <h1>Consultar por el monto promedio de los saldos anteriores de las tarjetas de pago por caja</h1>
                 <form action="">
                     <select name="cajas" id="cajas">
                         <option value="1"> caja 1</option>
@@ -82,8 +99,8 @@
                     <button type="button">CONSULTAR MONTO PROMEDIO</button>
                 </form>
             </div>
-              <div class="operaciones">
-            <h1>Consultar por el monto total de los saldos anteriores de las tarjetas de pago por caja</h1> 
+            <div class="operaciones" id="consultar-saldoA">
+                <h1>Consultar por el monto total de los saldos anteriores de las tarjetas de pago por caja</h1>
                 <form action="">
                     <select name="cajas" id="cajas">
                         <option value="1"> caja 1</option>
@@ -92,8 +109,8 @@
                     <button type="button">CONSULTAR MONTO TOTAL</button>
                 </form>
             </div>
-              <div class="operaciones">
-            <h1>Consultar por el monto total de las cargas de las tarjetas de pago habilitadas por caja</h1> 
+            <div class="operaciones" id="consultar-totalTH">
+                <h1>Consultar por el monto total de las cargas de las tarjetas de pago habilitadas por caja</h1>
                 <form action="">
                     <select name="cajas" id="cajas">
                         <option value="1"> caja 1</option>
@@ -102,8 +119,9 @@
                     <button type="button">CARGAR</button>
                 </form>
             </div>
-              <div class="operaciones">
-            <h1>Consultar por el monto total de las cargas de las tarjetas de pago deshbilitadas por caja</h1> 
+
+            <div class="operaciones" id="consultar-totalTD">
+                <h1>Consultar por el monto total de las cargas de las tarjetas de pago inhabilitadas por caja</h1>
                 <form action="">
                     <select name="cajas" id="cajas">
                         <option value="1"> caja 1</option>
@@ -112,9 +130,9 @@
                     <button type="button">CARGAR</button>
                 </form>
             </div>
-             
         </main>
     </div>
-    
+    <script src="menu.js"></script>
 </body>
+
 </html>
