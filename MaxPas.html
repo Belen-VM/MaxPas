@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxPas</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="cajas.js"></script>
     <script>
         console.log(cajas)
@@ -22,6 +25,8 @@
         function cargarMonto(){
             const numeroTarjeta= document.getElementById('tarjeta').value;
             const montoTarjeta=document.getElementById('cargar-monto').value;
+            const cargarMontoTarjetasResultado= document.getElementById('cargarMontoTarjetasResultado');
+            cargarMontoTarjetasResultado.classList.remove("resultados-on");
             console.log({numeroTarjeta, montoTarjeta});
             let tarjetaSelecionada= todasTarjetas.filter((tarjeta) => {
                 console.log({tarjeta});
@@ -32,97 +37,120 @@
             console.log({tarjetaSelecionada})
             tarjetaSelecionada[0].saldoAnterior= tarjetaSelecionada[0].montoCarga;
             tarjetaSelecionada[0].montoCarga = +montoTarjeta + tarjetaSelecionada[0].saldoAnterior;
-            console.log({tarjetaSelecionada})
-            alert("el nuevo saldo es: " +tarjetaSelecionada[0].montoCarga)
+            console.log({tarjetaSelecionada});
+            cargarMontoTarjetasResultado.textContent="💲El nuevo saldo es: " + tarjetaSelecionada[0].montoCarga + "🫰";
+
+            setTimeout(() => {
+            cargarMontoTarjetasResultado.classList.add("resultados-on");
+            },  0);            
+            
         }
     </script>
 </head>
 <body>
-    <div class="operaciones">
-        <h1>Cargar monto tarjeta</h1>   
-        <form action="">
-            <select name="tarjeta" id="tarjeta">
-                <option value="1">Tarjeta 1</option>
-                <option value="2">Tarjeta 2</option>
-            </select>
-            <input type="number" name="cargar-monto" id="cargar-monto">
-            <button type="button" onclick="cargarMonto()">CARGAR</button>
-        </form>
+    <div class="parent">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Cargar monto tarjeta</a></li>
+                <li><a href="#">Habilitar o deshabilitar tarjeta</a></li>
+                <li><a href="#">Consultar cantidad tarjetas por caja</a></li>
+                <li><a href="#">Consultar cantidad tarjetas habilitadas </a></li>
+                <li><a href="#">Consultar promedio</a></li>
+                <li><a href="#">Consultar monto total saldos anteriores</a></li>
+                <li><a href="#">Consultar monto total tarjetas habilitadas</a></li>
+                <li><a href="#">Consultar monto total tarjetas deshabilitadas</a></li>
+            </ul>
+        </div>
+        <main>
+            <div class="operaciones">
+                <h1>Cargar monto tarjeta</h1>   
+                <form action="">
+                    <select name="tarjeta" id="tarjeta">
+                        <option value="1">Tarjeta 1</option>
+                        <option value="2">Tarjeta 2</option>
+                    </select>
+                    <input type="number" name="cargar-monto" id="cargar-monto" value="1000">
+                    <button type="button" onclick="cargarMonto()">CARGAR</button>
+                </form>
+                <div class="resultados-off" id="cargarMontoTarjetasResultado"></div>
+            </div>
+          <div class="operaciones">
+            <h1> Habilitar o deshabilitar tarjeta</h1> 
+                <form action="">
+                    <select name="tarjeta" id="tarjeta">
+                        <option value="1">Tarjeta 1</option>
+                        <option value="2">Tarjeta 2</option>
+                    </select>
+                    <br>
+                    <button type="button">HABILITAR</button>
+                    <button type="button">DESHABILITAR</button>
+                </form>
+            </div>
+              <div class="operaciones">
+            <h1>Consultar por la cantidad de tarjetas de pago habilitadas por cajas</h1> 
+                <form action="">
+                    <select name="habilitada-deshabilitada" id="habilitada-deshabilitada">
+                        <option value="0">DESHABILITADA</option>
+                        <option value="1">HABILITADA</option>
+                    </select>
+                    <select>select name="cajas" id="cajas">
+                        <option value="1"> caja 1</option>
+                        <option value="1"> caja 2</option>
+                    </select>
+                    <button type="button">CONSULTAR</button>
+                </form>
+            </div>
+              <div class="operaciones">
+            <h1>Consultar cantidad de tarjetas de pago habilitadas por rango de fecha</h1> 
+                <form action="">
+                    <input type="date" name="fecha-inicio" id="fecha-inicio">
+                    <input type="date" name="fecha-fin" id="fecha-fin">
+                    <button type="button">CONSULTAR</button>
+                </form>
+            </div>
+              <div class="operaciones">
+            <h1>Consultar por el monto promedio de los saldos anteriores de las tarjetas de pago por caja</h1> 
+                <form action="">
+                    <select name="cajas" id="cajas">
+                        <option value="1"> caja 1</option>
+                        <option value="1"> caja 2</option>
+                    </select>
+                    <button type="button">CONSULTAR MONTO PROMEDIO</button>
+                </form>
+            </div>
+              <div class="operaciones">
+            <h1>Consultar por el monto total de los saldos anteriores de las tarjetas de pago por caja</h1> 
+                <form action="">
+                    <select name="cajas" id="cajas">
+                        <option value="1"> caja 1</option>
+                        <option value="1"> caja 2</option>
+                    </select>
+                    <button type="button">CONSULTAR MONTO TOTAL</button>
+                </form>
+            </div>
+              <div class="operaciones">
+            <h1>Consultar por el monto total de las cargas de las tarjetas de pago habilitadas por caja</h1> 
+                <form action="">
+                    <select name="cajas" id="cajas">
+                        <option value="1"> caja 1</option>
+                        <option value="1"> caja 2</option>
+                    </select>
+                    <button type="button">CARGAR</button>
+                </form>
+            </div>
+              <div class="operaciones">
+            <h1>Consultar por el monto total de las cargas de las tarjetas de pago deshbilitadas por caja</h1> 
+                <form action="">
+                    <select name="cajas" id="cajas">
+                        <option value="1"> caja 1</option>
+                        <option value="1"> caja 2</option>
+                    </select>
+                    <button type="button">CARGAR</button>
+                </form>
+            </div>
+             
+        </main>
     </div>
-  <div class="operaciones">
-    <h1> Habilitar o deshabilitar tarjeta</h1> 
-        <form action="">
-            <select name="tarjeta" id="tarjeta">
-                <option value="1">Tarjeta 1</option>
-                <option value="2">Tarjeta 2</option>
-            </select>
-            <br>
-            <button type="button">HABILITAR</button>
-            <button type="button">DESHABILITAR</button>
-        </form>
-    </div>
-      <div class="operaciones">
-    <h1>Consultar por la cantidad de tarjetas de pago habilitadas por cajas</h1> 
-        <form action="">
-            <select name="habilitada-deshabilitada" id="habilitada-deshabilitada">
-                <option value="0">DESHABILITADA</option>
-                <option value="1">HABILITADA</option>
-            </select>
-            <select>select name="cajas" id="cajas">
-                <option value="1"> caja 1</option>
-                <option value="1"> caja 2</option>
-            </select>
-            <button type="button">CONSULTAR</button>
-        </form>
-    </div>
-      <div class="operaciones">
-    <h1>Consultar cantidad de tarjetas de pago habilitadas por rango de fecha</h1> 
-        <form action="">
-            <input type="date" name="fecha-inicio" id="fecha-inicio">
-            <input type="date" name="fecha-fin" id="fecha-fin">
-            <button type="button">CONSULTAR</button>
-        </form>
-    </div>
-      <div class="operaciones">
-    <h1>Consultar por el monto promedio de los saldos anteriores de las tarjetas de pago por caja</h1> 
-        <form action="">
-            <select name="cajas" id="cajas">
-                <option value="1"> caja 1</option>
-                <option value="1"> caja 2</option>
-            </select>
-            <button type="button">CONSULTAR MONTO PROMEDIO</button>
-        </form>
-    </div>
-      <div class="operaciones">
-    <h1>Consultar por el monto total de los saldos anteriores de las tarjetas de pago por caja</h1> 
-        <form action="">
-            <select name="cajas" id="cajas">
-                <option value="1"> caja 1</option>
-                <option value="1"> caja 2</option>
-            </select>
-            <button type="button">CONSULTAR MONTO TOTAL</button>
-        </form>
-    </div>
-      <div class="operaciones">
-    <h1>Consultar por el monto total de las cargas de las tarjetas de pago habilitadas por caja</h1> 
-        <form action="">
-            <select name="cajas" id="cajas">
-                <option value="1"> caja 1</option>
-                <option value="1"> caja 2</option>
-            </select>
-            <button type="button">CARGAR</button>
-        </form>
-    </div>
-      <div class="operaciones">
-    <h1>Consultar por el monto total de las cargas de las tarjetas de pago deshbilitadas por caja</h1> 
-        <form action="">
-            <select name="cajas" id="cajas">
-                <option value="1"> caja 1</option>
-                <option value="1"> caja 2</option>
-            </select>
-            <button type="button">CARGAR</button>
-        </form>
-    </div>
-
+    
 </body>
 </html>

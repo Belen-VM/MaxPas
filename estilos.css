@@ -1,6 +1,122 @@
 .operaciones{
-    border: 1px dashed red;
+    border: 1px solid #3f4147;
     padding: 2em;
     margin-top: 2em;
     margin-bottom: 2em;
+}
+
+body{
+    margin: auto 200px;
+    color: #eff0f2;
+    font-family: "Poppins", sans-serif;
+}
+/* div{
+    border: 1px dotted rgba(50, 30, 0, 0.5);
+} */
+main{
+    background-color: #313338;
+    border-radius: 0px 20px 20px 0px;   
+}
+
+button{
+    background-color: #4752c4;
+    color: #ffffff;
+    border-width: 0px;
+    padding: 0.7em 1.3em;
+    border-radius: 5px;
+}
+select,input,button{
+    padding: 0.5em 1em;
+    margin: 10px;
+    border: none;
+    line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+select {
+    width: 200px;
+    background-color: #1e1f22;
+    color: #d5cfd5 ;
+    
+    
+  
+    
+    z-index: 1;
+  
+    &::-ms-expand {
+      display: none;
+    }
+}
+
+.parent{
+    display: grid;
+    grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+.sidebar{
+    background-color: #2b2d31;
+    border-radius: 20px 0px 0px 20px;
+    padding-top: 15px;
+    padding-left: 10px;
+    ul{
+        list-style-type: none;
+        overflow-x: hidden;
+        li{
+            padding: 0.5em;
+            border-bottom: 1px solid #3f4147;
+            a{
+                color: #dbd4dc;
+                text-decoration: none;
+            }
+        }
+        li:hover{
+            background-color: rgb(53, 55, 60);
+            transition: all 0.1s ease-in-out;
+            transform: translate(10px);
+            
+        }
+    }
+}
+
+
+.resultados-on{
+    height: 24px;
+    font-weight: 200;
+    animation: boing 0.2s forwards;
+}
+
+.resultados-off{
+    opacity: 0;
+    padding: 0.5em;
+}
+
+@keyframes boing{
+    0% {
+        opacity: 0;
+        background-color: rgba(53, 55, 60, 0);
+        transform: translateY(-30px);
+    }
+    
+    90% {
+        background-color: rgb(65, 66, 70);
+        transform: translateY(4px);
+    }
+    100% {
+        opacity: 1;
+        background-color: rgba(53, 55, 60, 0);
+        transform: translateY(0px);
+    }
 }
