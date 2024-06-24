@@ -4,48 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxPas</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="public/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="cajas.js"></script>
-    <script>
-        console.log(cajas)
-        let todasTarjetas= [];
-        for (let i = 0; i < cajas.length; i++) {
-            const caja = cajas[i];
-            console.log(caja)
-            todasTarjetas=[...todasTarjetas, ...caja.tarjetas]
-            console.log({todasTarjetas})           
-        }
-        function Form(){
-
-        }
-
-        function cargarMonto(){
-            const numeroTarjeta= document.getElementById('tarjeta').value;
-            const montoTarjeta=document.getElementById('cargar-monto').value;
-            const cargarMontoTarjetasResultado= document.getElementById('cargarMontoTarjetasResultado');
-            cargarMontoTarjetasResultado.classList.remove("resultados-on");
-            console.log({numeroTarjeta, montoTarjeta});
-            let tarjetaSelecionada= todasTarjetas.filter((tarjeta) => {
-                console.log({tarjeta});
-                
-                return numeroTarjeta == tarjeta.numero;
-            }) ;
-            
-            console.log({tarjetaSelecionada})
-            tarjetaSelecionada[0].saldoAnterior= tarjetaSelecionada[0].montoCarga;
-            tarjetaSelecionada[0].montoCarga = +montoTarjeta + tarjetaSelecionada[0].saldoAnterior;
-            console.log({tarjetaSelecionada});
-            cargarMontoTarjetasResultado.textContent="💲El nuevo saldo es: " + tarjetaSelecionada[0].montoCarga + "🫰";
-
-            setTimeout(() => {
-            cargarMontoTarjetasResultado.classList.add("resultados-on");
-            },  0);            
-            
-        }
-    </script>
+    <script src="data/cajas.js"></script>
+    <script src="features.js"></script>
 </head>
 <body>
     <div class="parent">
