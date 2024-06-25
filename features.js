@@ -9,7 +9,7 @@ for (let i = 0; i < cajas.length; i++) {
 function Form() {}
 
 function cargarMonto() {
-  const numeroTarjeta = document.getElementById("tarjeta").value;
+  const numeroTarjeta = document.getElementById("cargar-tarjeta").value;
   const montoTarjeta = document.getElementById("cargar-monto").value;
   const cargarMontoTarjetasResultado = document.getElementById(
     "cargarMontoTarjetasResultado"
@@ -34,3 +34,84 @@ function cargarMonto() {
     cargarMontoTarjetasResultado.classList.add("resultados-on");
   }, 0);
 }
+
+function actualizarResultadoCargarMonto() {
+    const numeroTarjeta=document.getElementById("cargar-tarjeta").value;
+    console.log({numeroTarjeta});
+
+    let tarjetaSelecionada = todasTarjetas.find((tarjeta) => {
+        console.log({tarjeta, numeroTarjeta});
+        return numeroTarjeta == tarjeta.numero;
+    }); 
+    const feedbackBox = document.getElementById("cargarMontoTarjetasResultado");
+    feedbackBox.classList.remove("resultados-on");
+
+    feedbackBox.textContent =
+    "💲El saldo actual es: " + tarjetaSelecionada.montoCarga + "🫰";
+
+
+    setTimeout(() => {
+        feedbackBox.classList.add("resultados-on");
+    }, 0);
+}
+
+function habilitarTarjetaPago(){
+    const numeroTarjeta=document.getElementById("hd-tarjeta").value;
+    console.log({numeroTarjeta});
+
+    let tarjetaSelecionada = todasTarjetas.find((tarjeta) => {
+        console.log({ tarjeta });
+        
+        return numeroTarjeta == tarjeta.numero;
+      });
+      tarjetaSelecionada.estado="habilitada";
+      console.log({tarjetaSelecionada});
+
+      actualizarFeedbackEmoji(tarjetaSelecionada);
+}
+
+function inhabilitarTarjetaPago(){
+    const numeroTarjeta=document.getElementById("hd-tarjeta").value;
+    console.log({numeroTarjeta});
+
+    let tarjetaSelecionada = todasTarjetas.find((tarjeta) => {
+        console.log({tarjeta, numeroTarjeta});
+        return numeroTarjeta == tarjeta.numero;
+    }); 
+
+    tarjetaSelecionada.estado="inhabilitada";
+    
+    actualizarFeedbackEmoji(tarjetaSelecionada);
+}
+function actualizarFeedbackEmoji(tarjetaSelecionada) {
+
+    const feedbackBox = document.getElementById("feedback");
+    feedbackBox.classList.remove("resultados-on");
+    
+
+    if (tarjetaSelecionada.estado == "inhabilitada") {
+        feedbackBox.textContent = "👎";
+    } else {
+        feedbackBox.textContent = "👍";
+    }
+
+    setTimeout(() => {
+        feedbackBox.classList.add("resultados-on");
+    }, 0);
+}
+
+function actualizarFeedbackTarjeta(){
+    const numeroTarjeta=document.getElementById("hd-tarjeta").value;
+    console.log({numeroTarjeta});
+
+    let tarjetaSelecionada = todasTarjetas.find((tarjeta) => {
+        console.log({tarjeta, numeroTarjeta});
+        return numeroTarjeta == tarjeta.numero;
+    }); 
+
+    actualizarFeedbackEmoji(tarjetaSelecionada);
+
+}
+
+
+

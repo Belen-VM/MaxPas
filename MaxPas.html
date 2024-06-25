@@ -46,7 +46,7 @@
             <div class="operaciones" id="cargar-monto-tarjeta">
                 <h1>Cargar monto tarjeta</h1>
                 <form action="">
-                    <select name="tarjeta" id="tarjeta">
+                    <select name="cargar-tarjeta" id="cargar-tarjeta" onchange="actualizarResultadoCargarMonto()">
                         <option value="1">Tarjeta 1</option>
                         <option value="2">Tarjeta 2</option>
                     </select>
@@ -58,13 +58,14 @@
             <div class="operaciones" id="habilitada-deshabilitada">
                 <h1> Habilitar o deshabilitar tarjeta</h1>
                 <form action="">
-                    <select name="tarjeta" id="tarjeta">
+                    <select name="hd-tarjeta" id="hd-tarjeta" onchange="actualizarFeedbackTarjeta()">
                         <option value="1">Tarjeta 1</option>
                         <option value="2">Tarjeta 2</option>
                     </select>
+                    <div class="resultados-off feedback" id="feedback"></div>
                     <br>
-                    <button type="button">HABILITAR</button>
-                    <button type="button">DESHABILITAR</button>
+                    <button type="button" onclick="habilitarTarjetaPago()">HABILITAR</button>
+                    <button type="button" onclick="inhabilitarTarjetaPago()">DESHABILITAR</button>
                 </form>
             </div>
             <div class="operaciones" id="cantidadT-caja">

@@ -46,11 +46,7 @@ input[type=number] {
 select {
     width: 200px;
     background-color: #1e1f22;
-    color: #d5cfd5 ;
-    
-    
-  
-    
+    color: #d5cfd5 ;   
     z-index: 1;
   
     &::-ms-expand {
@@ -134,6 +130,9 @@ hr{
 .resultados-off{
     opacity: 0;
     padding: 0.5em;
+}
+.feedback{
+    display: inline;
 }
 
 @keyframes boing{
