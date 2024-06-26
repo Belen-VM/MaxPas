@@ -44,7 +44,7 @@ input[type=number] {
 }
 
 select {
-    width: 200px;
+    width: 256px;
     background-color: #1e1f22;
     color: #d5cfd5 ;   
     z-index: 1;

@@ -92,7 +92,7 @@ const cajas = [
     nombre: "#Caja5",
     tarjetas: [
       {
-        numero: 3,
+        numero: 9,
         fecha: "",
         numeroChip: 9,
         saldoAnterior: 0,
@@ -100,7 +100,7 @@ const cajas = [
         estado: 0,
       },
       {
-        numero: 4,
+        numero: 10,
         fecha: "",
         numeroChip: 10,
         saldoAnterior: 0,
@@ -114,7 +114,7 @@ const cajas = [
     nombre: "#Caja6",
     tarjetas: [
       {
-        numero: 3,
+        numero: 11,
         fecha: "",
         numeroChip: 11,
         saldoAnterior: 0,
@@ -122,7 +122,7 @@ const cajas = [
         estado: 0,
       },
       {
-        numero: 4,
+        numero: 12,
         fecha: "",
         numeroChip: 12,
         saldoAnterior: 0,
@@ -136,7 +136,7 @@ const cajas = [
     nombre: "#Caja7",
     tarjetas: [
       {
-        numero: 9,
+        numero: 13,
         fecha: "",
         numeroChip: 13,
         saldoAnterior: 0,
@@ -144,7 +144,7 @@ const cajas = [
         estado: 0,
       },
       {
-        numero: 10,
+        numero: 14,
         fecha: "",
         numeroChip: 14,
         saldoAnterior: 0,

@@ -6,6 +6,26 @@ for (let i = 0; i < cajas.length; i++) {
   todasTarjetas = [...todasTarjetas, ...caja.tarjetas];
   console.log({ todasTarjetas });
 }
+
+function fillData(elementID, data){
+
+  console.log({elementID, data});
+  const targetSelect = document.getElementById(elementID);
+  console.log({targetSelect});
+  for (let i = 0; i < data.length; i++) {
+      const item = data[i];
+      const element= document.createElement("option");
+      element.textContent = "Tarjeta " + item.numero;
+      console.log({item});
+      element.value=  item.numero;
+      targetSelect.appendChild(element);
+  }
+}
+
+fillData("cargar-tarjeta", todasTarjetas);
+fillData("hd-tarjeta", todasTarjetas);
+
+
 function Form() {}
 
 function cargarMonto() {
@@ -112,6 +132,8 @@ function actualizarFeedbackTarjeta(){
     actualizarFeedbackEmoji(tarjetaSelecionada);
 
 }
+
+
 
 
 

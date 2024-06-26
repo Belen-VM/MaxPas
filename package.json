@@ -1,0 +1,11 @@
+{
+  "name": "maxpas",
+  "version": "1.0.0",
+  "description": "MaxPas es una aplicacion cliente para administrar tarjetas de prepago.",
+  "main": "features.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Belen Vargas",
+  "license": "ISC"
+}
