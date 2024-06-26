@@ -105,7 +105,7 @@ const cajas = [
         numeroChip: 10,
         saldoAnterior: 0,
         montoCarga: 0,
-        estado: 0,
+        estado: 1,
       },
     ],
   },

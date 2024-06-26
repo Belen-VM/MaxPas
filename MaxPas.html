@@ -54,6 +54,7 @@
                 </form>
                 <div class="resultados-off" id="cargarMontoTarjetasResultado"></div>
             </div>
+
             <div class="operaciones" id="habilitada-deshabilitada">
                 <h1> Habilitar o deshabilitar tarjeta</h1>
                 <form action="">
@@ -66,19 +67,22 @@
                     <button type="button" onclick="inhabilitarTarjetaPago()">DESHABILITAR</button>
                 </form>
             </div>
+
             <div class="operaciones" id="cantidadT-caja">
                 <h1>Consultar por la cantidad de tarjetas de pago habilitadas por cajas</h1>
                 <form action="">
-                    <select name="habilitada-deshabilitada" id="habilitada-deshabilitada">
+                    <select name="HD" id="HD">
                         <option value="0">DESHABILITADA</option>
                         <option value="1">HABILITADA</option>
                     </select>
-                    <select name="cajas" class="cajas">
+                    <select name="cajas" class="cajas" id="cantidadT-caja-select">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button">CONSULTAR</button>
+                    <button type="button" onclick="ContarTarjetas()" >CONSULTAR</button>
                 </form>
+                <div class="resultados-off" id="resultadoCantidadCaja"></div>
             </div>
+
             <div class="operaciones" id="cantidadT-habilitadas">
                 <h1>Consultar cantidad de tarjetas de pago habilitadas por rango de fecha</h1>
                 <form action="">
@@ -87,6 +91,7 @@
                     <button type="button">CONSULTAR</button>
                 </form>
             </div>
+
             <div class="operaciones" id="consultar-promedio">
                 <h1>Consultar por el monto promedio de los saldos anteriores de las tarjetas de pago por caja</h1>
                 <form action="">
@@ -96,6 +101,7 @@
                     <button type="button">CONSULTAR MONTO PROMEDIO</button>
                 </form>
             </div>
+
             <div class="operaciones" id="consultar-saldoA">
                 <h1>Consultar por el monto total de los saldos anteriores de las tarjetas de pago por caja</h1>
                 <form action="">
@@ -105,6 +111,7 @@
                     <button type="button">CONSULTAR MONTO TOTAL</button>
                 </form>
             </div>
+
             <div class="operaciones" id="consultar-totalTH">
                 <h1>Consultar por el monto total de las cargas de las tarjetas de pago habilitadas por caja</h1>
                 <form action="">
@@ -124,6 +131,7 @@
                     <button type="button">CARGAR</button>
                 </form>
             </div>
+
         </main>
     </div>
     <script src="menu.js"></script>

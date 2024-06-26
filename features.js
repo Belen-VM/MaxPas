@@ -37,7 +37,7 @@ function fillDataCaja(elementClass, data){
     for (let i = 0; i < data.length; i++) {
         const item = data[i];
         const element= document.createElement("option");
-        element.textContent = "Caja" + item.numero;
+        element.textContent = "Caja " + item.numero;
         console.log({item});
         element.value=  item.numero;
         targetSelect.appendChild(element);
@@ -99,6 +99,17 @@ function actualizarResultadoCargarMonto() {
     }, 0);
 }
 
+function AnimateFeedbackBox(idBox, message){
+  const feedbackBox = document.getElementById(idBox);
+  feedbackBox.classList.remove("resultados-on");
+
+  feedbackBox.textContent = message;
+
+  setTimeout(() => {
+      feedbackBox.classList.add("resultados-on");
+  }, 0);
+};
+
 function habilitarTarjetaPago(){
     const numeroTarjeta=document.getElementById("hd-tarjeta").value;
     console.log({numeroTarjeta});
@@ -108,7 +119,7 @@ function habilitarTarjetaPago(){
         
         return numeroTarjeta == tarjeta.numero;
       });
-      tarjetaSelecionada.estado="habilitada";
+      tarjetaSelecionada.estado=1;
       console.log({tarjetaSelecionada});
 
       actualizarFeedbackEmoji(tarjetaSelecionada);
@@ -123,7 +134,7 @@ function inhabilitarTarjetaPago(){
         return numeroTarjeta == tarjeta.numero;
     }); 
 
-    tarjetaSelecionada.estado="inhabilitada";
+    tarjetaSelecionada.estado=0;
     
     actualizarFeedbackEmoji(tarjetaSelecionada);
 }
@@ -157,6 +168,31 @@ function actualizarFeedbackTarjeta(){
 
 }
 
+function ContarTarjetas(){
+    const numeroCaja= document.getElementById("cantidadT-caja-select").value;
+    const cajaHD=document.getElementById("HD").value;
+    console.log({cajaHD});
+
+    let cajaSeleccionada= cajas.find((caja) => {
+      console.log({caja});
+      return numeroCaja == caja.numero;
+    });
+    let conteo = cajaSeleccionada.tarjetas.filter((tarjeta) => {
+      return +cajaHD == tarjeta.estado;
+    }).length;
+
+    let statusEmoji = " habilitadas 👍";
+
+    if (cajaHD == 0){
+      statusEmoji = " deshabilitadas👎";
+    }
+
+    AnimateFeedbackBox("resultadoCantidadCaja", "La cantidad de tarjetas " + statusEmoji + " de pago es: " + conteo);
+    console.log({conteo});
+    console.log({cajaSeleccionada});
+    
+    
+}
 
 
 
