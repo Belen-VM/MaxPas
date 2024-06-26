@@ -1,46 +1,156 @@
-const cajas=[
-    {
+const cajas = [
+  {
     numero: 1,
-    nombre: '#Caja1',
+    nombre: "#Caja1",
     tarjetas: [
-        {
-            numero: 1,
-            fecha:'',
-            numeroChip: 1,
-            saldoAnterior: 0,
-            montoCarga: 0,
-            estado:0,
-        },
-        {
-            numero: 2,
-            fecha:'',
-            numeroChip: 2,
-            saldoAnterior: 0,
-            montoCarga: 0,
-            estado:0,
-        }
-    ]
-}, 
-{
+      {
+        numero: 1,
+        fecha: "",
+        numeroChip: 1,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 2,
+        fecha: "",
+        numeroChip: 2,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+  {
     numero: 2,
-    nombre: '#Caja2',
+    nombre: "#Caja2",
     tarjetas: [
-        {
-            numero: 3,
-            fecha:'',
-            numeroChip: 3,
-            saldoAnterior: 0,
-            montoCarga: 500,
-            estado:0,
-        },
-        {
-            numero: 4,
-            fecha:'',
-            numeroChip: 4,
-            saldoAnterior: 0,
-            montoCarga: 240,
-            estado:0,
-        }
-    ]
-}
-]
+      {
+        numero: 3,
+        fecha: "",
+        numeroChip: 3,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 4,
+        fecha: "",
+        numeroChip: 4,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+  {
+    numero: 3,
+    nombre: "#Caja3",
+    tarjetas: [
+      {
+        numero: 5,
+        fecha: "",
+        numeroChip: 5,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 6,
+        fecha: "",
+        numeroChip: 6,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+  {
+    numero: 4,
+    nombre: "#Caja4",
+    tarjetas: [
+      {
+        numero: 7,
+        fecha: "",
+        numeroChip: 7,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 8,
+        fecha: "",
+        numeroChip: 8,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+  {
+    numero: 5,
+    nombre: "#Caja5",
+    tarjetas: [
+      {
+        numero: 3,
+        fecha: "",
+        numeroChip: 9,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 4,
+        fecha: "",
+        numeroChip: 10,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+  {
+    numero: 6,
+    nombre: "#Caja6",
+    tarjetas: [
+      {
+        numero: 3,
+        fecha: "",
+        numeroChip: 11,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 4,
+        fecha: "",
+        numeroChip: 12,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+  {
+    numero: 7,
+    nombre: "#Caja7",
+    tarjetas: [
+      {
+        numero: 9,
+        fecha: "",
+        numeroChip: 13,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+      {
+        numero: 10,
+        fecha: "",
+        numeroChip: 14,
+        saldoAnterior: 0,
+        montoCarga: 0,
+        estado: 0,
+      },
+    ],
+  },
+];
