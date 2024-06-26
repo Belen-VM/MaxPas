@@ -1,3 +1,4 @@
+
 console.log(cajas);
 let todasTarjetas = [];
 for (let i = 0; i < cajas.length; i++) {
@@ -7,7 +8,9 @@ for (let i = 0; i < cajas.length; i++) {
   console.log({ todasTarjetas });
 }
 
-function fillData(elementID, data){
+
+
+function fillDataTarjeta(elementID, data){
 
   console.log({elementID, data});
   const targetSelect = document.getElementById(elementID);
@@ -22,8 +25,29 @@ function fillData(elementID, data){
   }
 }
 
-fillData("cargar-tarjeta", todasTarjetas);
-fillData("hd-tarjeta", todasTarjetas);
+function fillDataCaja(elementClass, data){
+  console.warn("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+  console.log({elementClass, data});
+  const targetItems = document.querySelectorAll(elementClass);
+  console.log({targetItems});
+  for (let index = 0; index < targetItems.length; index++) {
+    const targetSelect = targetItems[index];
+
+    console.log({targetSelect});
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        const element= document.createElement("option");
+        element.textContent = "Caja" + item.numero;
+        console.log({item});
+        element.value=  item.numero;
+        targetSelect.appendChild(element);
+    }
+  }
+}
+
+fillDataTarjeta("cargar-tarjeta", todasTarjetas);
+fillDataTarjeta("hd-tarjeta", todasTarjetas);
+fillDataCaja(".cajas", cajas);
 
 
 function Form() {}
