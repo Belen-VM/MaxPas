@@ -100,6 +100,7 @@ function actualizarResultadoCargarMonto() {
 }
 
 function AnimateFeedbackBox(idBox, message){
+  console.log({idBox});
   const feedbackBox = document.getElementById(idBox);
   feedbackBox.classList.remove("resultados-on");
 
@@ -193,6 +194,47 @@ function ContarTarjetas(){
     
     
 }
+
+
+
+function CalcTarjetasHabilitadasFecha(){
+  //TODO:CALC TARJETAS HABILITADAS POR FECHA
+}
+function CalcPromedioCaja(){
+   //TODO:CALC TOTAL promedio tarjetas 
+}
+function CalcMTTarjetasSaldosAnteriores(){
+  //TODO:CALC TOTAL SALDOS ANTERIORES
+}
+function CalcMTTarjetasHabilitadas(){
+  
+  const cajaSelect = document.getElementById("consultar-MTotalTH").value;
+  console.log({cajaSelect});
+
+  let cajaSeleccionada= cajas.find((caja) => {
+    console.log({caja});
+    return cajaSelect == caja.numero;
+  });
+  console.log({cajaSeleccionada});
+  let tarjetasHabilitadas = cajaSeleccionada.tarjetas.filter((tarjeta) => {
+    console.log({tarjeta});
+    return tarjeta.estado==1;
+  });
+  
+  console.log({tarjetasHabilitadas});
+  let sumar = tarjetasHabilitadas.reduce((acumulador, tarjeta)=>{
+    return acumulador + tarjeta.montoCarga;
+  }, 0);
+console.log({sumar});
+
+  AnimateFeedbackBox("resultadoMTTarjetasH", "El monto total de las tarjetas habilitadas de la caja #" + cajaSeleccionada.numero + " es: " + sumar);
+
+}
+function CalcMTTarjetasDeshabilitadas(){
+    //TODO:CALC TOTAL TARJETAS DESHABILITADAS
+}
+
+    
 
 
 
