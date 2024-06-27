@@ -105,11 +105,12 @@
             <div class="operaciones" id="consultar-saldoA">
                 <h1>Consultar por el monto total de los saldos anteriores de las tarjetas de pago por caja</h1>
                 <form action="">
-                    <select name="cajas" class="cajas">
+                    <select name="cajas" class="cajas" id="consultar-MTotalTSaldosAnteriores">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button">CONSULTAR MONTO TOTAL</button>
+                    <button type="button" onclick="CalcMTTarjetasSaldosAnteriores()">CARGAR</button>
                 </form>
+                <div class="resultados-off" id="resultadoMTTarjetasSaldoAnteriores"></div>
             </div>
 
             <div class="operaciones" id="consultar-totalTH">

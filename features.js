@@ -204,7 +204,24 @@ function CalcPromedioCaja(){
    //TODO:CALC TOTAL promedio tarjetas 
 }
 function CalcMTTarjetasSaldosAnteriores(){
-  //TODO:CALC TOTAL SALDOS ANTERIORES
+
+  const cajaSelect = document.getElementById("consultar-MTotalTSaldosAnteriores").value;
+  console.log({cajaSelect});
+
+  let cajaSeleccionada = cajas.find((caja) => {
+    return cajaSelect == caja.numero;
+  });
+  console.log({cajaSeleccionada});
+
+  let tarjetasCaja = cajaSeleccionada.tarjetas;
+  console.log({tarjetasCaja});
+
+  let sumar = tarjetasCaja.reduce((acumulador, tarjetaActual) =>{
+    return acumulador + tarjetaActual.saldoAnterior;
+  }, 0);
+
+  AnimateFeedbackBox("resultadoMTTarjetasSaldoAnteriores", "El monto total de saldos anteriores de las tarjetas de la caja " + cajaSeleccionada.numero + " es: " + sumar);
+  
 }
 function CalcMTTarjetasHabilitadas(){
   
