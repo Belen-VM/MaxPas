@@ -26,7 +26,7 @@ function fillDataTarjeta(elementID, data){
 }
 
 function fillDataCaja(elementClass, data){
-  console.warn("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+  
   console.log({elementClass, data});
   const targetItems = document.querySelectorAll(elementClass);
   console.log({targetItems});
@@ -202,6 +202,25 @@ function CalcTarjetasHabilitadasFecha(){
 }
 function CalcPromedioCaja(){
    //TODO:CALC TOTAL promedio tarjetas 
+   //resultadoMTPromedio
+
+   const cajaSelect = document.getElementById("consultarPromedioCaja").value;
+   console.log({cajaSelect});
+
+   let cajaSeleccionada = cajas.find((caja) => {
+    return cajaSelect == caja.numero;
+   });
+
+   let tarjetasCaja = cajaSeleccionada.tarjetas;
+
+   let sumar = tarjetasCaja.reduce((acumulador, tarjetaActual) => {
+    return acumulador + tarjetaActual.saldoAnterior;
+   }, 0);
+
+   let promedio = sumar / tarjetasCaja.length;
+
+   AnimateFeedbackBox("resultadoMTPromedio", "El monto promedio de saldos anteriores de las tarjetas de la caja " + cajaSeleccionada.numero + " es: " + promedio);
+  
 }
 function CalcMTTarjetasSaldosAnteriores(){
 
