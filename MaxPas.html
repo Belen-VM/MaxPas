@@ -126,11 +126,12 @@
             <div class="operaciones" id="consultar-totalTD">
                 <h1>Consultar por el monto total de las cargas de las tarjetas de pago inhabilitadas por caja</h1>
                 <form action="">
-                    <select name="cajas" class="cajas">
+                    <select name="cajas" class="cajas" id="consultar-MTotalTD">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button">CARGAR</button>
+                    <button type="button" onclick="CalcMTTarjetasDeshabilitadas()">CARGAR</button>
                 </form>
+                <div class="resultados-off" id="resultadoMTTarjetasD"></div>
             </div>
 
         </main>

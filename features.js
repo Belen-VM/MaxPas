@@ -231,11 +231,23 @@ console.log({sumar});
 
 }
 function CalcMTTarjetasDeshabilitadas(){
-    //TODO:CALC TOTAL TARJETAS DESHABILITADAS
-}
-
     
+    const cajaSelect = document.getElementById("consultar-MTotalTD").value;
 
+    let cajaSeleccionada= cajas.find((caja) => {
+      return cajaSelect == caja.numero;
+    });
 
+    let tarjetasDeshabilitadas = cajaSeleccionada.tarjetas.filter((tarjeta) => {
+      console.log({tarjeta});
 
+      return tarjeta.estado==0;
+    });
 
+    let sumar = tarjetasDeshabilitadas.reduce((acumulador, tarjeta) => {
+      return acumulador + tarjeta.montoCarga;
+    }, 0);
+  
+    AnimateFeedbackBox("resultadoMTTarjetasD", "El monto total de las tarjetas deshabilitadas de la caja #" + cajaSeleccionada.numero + " es: " + sumar);
+
+};
