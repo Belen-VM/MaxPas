@@ -1,12 +1,3 @@
-console.log(cajas);
-let todasTarjetas = [];
-for (let i = 0; i < cajas.length; i++) {
-  const caja = cajas[i];
-  console.log(caja);
-  todasTarjetas = [...todasTarjetas, ...caja.tarjetas];
-  console.log({ todasTarjetas });
-}
-
 function fillDataTarjeta(elementID, data) {
   console.log({ elementID, data });
   const targetSelect = document.getElementById(elementID);
@@ -20,31 +11,6 @@ function fillDataTarjeta(elementID, data) {
     targetSelect.appendChild(element);
   }
 }
-
-function fillDataCaja(elementClass, data) {
-  console.log({ elementClass, data });
-  const targetItems = document.querySelectorAll(elementClass);
-  console.log({ targetItems });
-  for (let index = 0; index < targetItems.length; index++) {
-    const targetSelect = targetItems[index];
-
-    console.log({ targetSelect });
-    for (let i = 0; i < data.length; i++) {
-      const item = data[i];
-      const element = document.createElement("option");
-      element.textContent = "Caja " + item.numero;
-      console.log({ item });
-      element.value = item.numero;
-      targetSelect.appendChild(element);
-    }
-  }
-}
-
-fillDataTarjeta("cargar-tarjeta", todasTarjetas);
-fillDataTarjeta("hd-tarjeta", todasTarjetas);
-fillDataCaja(".cajas", cajas);
-
-function Form() {}
 
 function cargarMonto() {
   const numeroTarjeta = document.getElementById("cargar-tarjeta").value;
@@ -65,7 +31,11 @@ function cargarMonto() {
   }
 
   cargarMontoTarjetasResultado.classList.remove("resultados-on");
+
   console.log({ numeroTarjeta, montoTarjeta });
+
+  //
+  // const valorCargado=cargarMonto(numeroTarjeta);
   let tarjetaSelecionada = todasTarjetas.filter((tarjeta) => {
     console.log({ tarjeta });
 
@@ -77,6 +47,7 @@ function cargarMonto() {
   tarjetaSelecionada[0].montoCarga =
     +montoTarjeta + tarjetaSelecionada[0].saldoAnterior;
   console.log({ tarjetaSelecionada });
+
   cargarMontoTarjetasResultado.textContent =
     "💲El nuevo saldo es: " + tarjetaSelecionada[0].montoCarga + "🫰";
 
@@ -102,27 +73,6 @@ function actualizarResultadoCargarMonto() {
   setTimeout(() => {
     feedbackBox.classList.add("resultados-on");
   }, 0);
-}
-
-function AnimateFeedbackBox(idBox, message) {
-  console.log({ idBox });
-  const feedbackBox = document.getElementById(idBox);
-  ClearFeedbackBoxes();
-  feedbackBox.classList.remove("resultados-on");
-
-  feedbackBox.textContent = message;
-
-  setTimeout(() => {
-    feedbackBox.classList.add("resultados-on");
-  }, 0);
-}
-
-function ClearFeedbackBoxes() {
-  const todosFeedBackBox = document.querySelectorAll(".resultados-off");
-  for (let index = 0; index < todosFeedBackBox.length; index++) {
-    const currentFeedBackBox = todosFeedBackBox[index];
-    currentFeedBackBox.classList.remove("resultados-on");
-  }
 }
 
 function habilitarTarjetaPago() {
@@ -163,6 +113,7 @@ function inhabilitarTarjetaPago() {
 
   actualizarFeedbackEmoji(tarjetaSelecionada);
 }
+
 function actualizarFeedbackEmoji(tarjetaSelecionada) {
   const feedbackBox = document.getElementById("feedback");
   feedbackBox.classList.remove("resultados-on");
@@ -247,35 +198,7 @@ function CalcTarjetasHabilitadasFecha() {
       TarjetasHRangoFecha.length
   );
 }
-function CalcPromedioCaja() {
-  const cajaSelect = document.getElementById("consultarPromedioCaja").value;
-  console.log({ cajaSelect });
 
-  if (!cajaSelect) {
-    AnimateFeedbackBox("resultadoMTPromedio", "Elige una caja");
-    return;
-  }
-
-  let cajaSeleccionada = cajas.find((caja) => {
-    return cajaSelect == caja.numero;
-  });
-
-  let tarjetasCaja = cajaSeleccionada.tarjetas;
-
-  let sumar = tarjetasCaja.reduce((acumulador, tarjetaActual) => {
-    return acumulador + tarjetaActual.saldoAnterior;
-  }, 0);
-
-  let promedio = sumar / tarjetasCaja.length;
-
-  AnimateFeedbackBox(
-    "resultadoMTPromedio",
-    "El monto promedio de saldos anteriores de las tarjetas de la caja " +
-      cajaSeleccionada.numero +
-      " es: " +
-      promedio
-  );
-}
 function CalcMTTarjetasSaldosAnteriores() {
   const cajaSelect = document.getElementById(
     "consultar-MTotalTSaldosAnteriores"
@@ -301,67 +224,6 @@ function CalcMTTarjetasSaldosAnteriores() {
   AnimateFeedbackBox(
     "resultadoMTTarjetasSaldoAnteriores",
     "El monto total de saldos anteriores de las tarjetas de la caja " +
-      cajaSeleccionada.numero +
-      " es: " +
-      sumar
-  );
-}
-function CalcMTTarjetasHabilitadas() {
-  const cajaSelect = document.getElementById("consultar-MTotalTH").value;
-  console.log({ cajaSelect });
-  if (!cajaSelect) {
-    AnimateFeedbackBox("resultadoMTTarjetasH", "Elige una caja");
-    return;
-  }
-
-  let cajaSeleccionada = cajas.find((caja) => {
-    console.log({ caja });
-    return cajaSelect == caja.numero;
-  });
-  console.log({ cajaSeleccionada });
-  let tarjetasHabilitadas = cajaSeleccionada.tarjetas.filter((tarjeta) => {
-    console.log({ tarjeta });
-    return tarjeta.estado == 1;
-  });
-
-  console.log({ tarjetasHabilitadas });
-  let sumar = tarjetasHabilitadas.reduce((acumulador, tarjeta) => {
-    return acumulador + tarjeta.montoCarga;
-  }, 0);
-  console.log({ sumar });
-
-  AnimateFeedbackBox(
-    "resultadoMTTarjetasH",
-    "El monto total de las tarjetas habilitadas de la caja #" +
-      cajaSeleccionada.numero +
-      " es: " +
-      sumar
-  );
-}
-function CalcMTTarjetasDeshabilitadas() {
-  const cajaSelect = document.getElementById("consultar-MTotalTD").value;
-  if (!cajaSelect) {
-    AnimateFeedbackBox("resultadoMTTarjetasD", "Elige una caja");
-    return;
-  }
-
-  let cajaSeleccionada = cajas.find((caja) => {
-    return cajaSelect == caja.numero;
-  });
-
-  let tarjetasDeshabilitadas = cajaSeleccionada.tarjetas.filter((tarjeta) => {
-    console.log({ tarjeta });
-
-    return tarjeta.estado == 0;
-  });
-
-  let sumar = tarjetasDeshabilitadas.reduce((acumulador, tarjeta) => {
-    return acumulador + tarjeta.montoCarga;
-  }, 0);
-
-  AnimateFeedbackBox(
-    "resultadoMTTarjetasD",
-    "El monto total de las tarjetas deshabilitadas de la caja #" +
       cajaSeleccionada.numero +
       " es: " +
       sumar
