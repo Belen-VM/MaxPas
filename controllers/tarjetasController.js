@@ -1,17 +1,3 @@
-function fillDataTarjeta(elementID, data) {
-  console.log({ elementID, data });
-  const targetSelect = document.getElementById(elementID);
-  console.log({ targetSelect });
-  for (let i = 0; i < data.length; i++) {
-    const item = data[i];
-    const element = document.createElement("option");
-    element.textContent = "Tarjeta " + item.numero;
-    console.log({ item });
-    element.value = item.numero;
-    targetSelect.appendChild(element);
-  }
-}
-
 function cargarMonto() {
   const numeroTarjeta = document.getElementById("cargar-tarjeta").value;
   const montoTarjeta = document.getElementById("cargar-monto").value;
