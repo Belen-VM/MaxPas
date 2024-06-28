@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <script src="data/cajas.js"></script>
-    
+
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                 <li><a data-target="cantidadT-caja" class="menulink">Cantidad tarjetas por caja</a>
                 </li>
                 <li><a data-target="cantidadT-habilitadasFecha" class="menulink">Tarjetas
-                        habilitadas por fecha  </a></li>
+                        habilitadas por fecha </a></li>
                 <li><a data-target="consultar-promedio" class="menulink">Promedio</a></li>
                 <li><a data-target="consultar-saldoA" class="menulink">Monto total saldos
                         anteriores</a></li>
@@ -49,7 +49,7 @@
                     <select name="cargar-tarjeta" id="cargar-tarjeta" onchange="actualizarResultadoCargarMonto()">
                         <option value="" disabled selected>Selecciona una tarjeta</option>
                     </select>
-                    <input type="number" name="cargar-monto" id="cargar-monto" value="1000">
+                    <input type="number" name="cargar-monto" id="cargar-monto" value="0">
                     <button type="button" onclick="cargarMonto()">CARGAR</button>
                 </form>
                 <div class="resultados-off" id="cargarMontoTarjetasResultado"></div>
@@ -62,10 +62,11 @@
                         <option value="" disabled selected>Selecciona una tarjeta</option>
                     </select>
                     <div class="resultados-off feedback" id="feedback"></div>
-                    <br>
+
                     <button type="button" onclick="habilitarTarjetaPago()">HABILITAR</button>
                     <button type="button" onclick="inhabilitarTarjetaPago()">INHABILITAR</button>
                 </form>
+                <div class="resultados-off" id="ClausulaDeGuardiaHD"></div>
             </div>
 
             <div class="operaciones" id="cantidadT-caja">
@@ -78,7 +79,7 @@
                     <select name="cajas" class="cajas" id="cantidadT-caja-select">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button" onclick="ContarTarjetas()" >CONSULTAR</button>
+                    <button type="button" onclick="ContarTarjetas()">CONSULTAR</button>
                 </form>
                 <div class="resultados-off" id="resultadoCantidadCaja"></div>
             </div>
@@ -99,7 +100,7 @@
                     <select name="cajas" class="cajas" id="consultarPromedioCaja">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button" onclick="CalcPromedioCaja()">CONSULTAR MONTO PROMEDIO</button>
+                    <button type="button" onclick="CalcPromedioCaja()">CONSULTAR</button>
                 </form>
                 <div class="resultados-off" id="resultadoMTPromedio"></div>
             </div>
@@ -110,7 +111,7 @@
                     <select name="cajas" class="cajas" id="consultar-MTotalTSaldosAnteriores">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button" onclick="CalcMTTarjetasSaldosAnteriores()">CARGAR</button>
+                    <button type="button" onclick="CalcMTTarjetasSaldosAnteriores()">CONSULTAR</button>
                 </form>
                 <div class="resultados-off" id="resultadoMTTarjetasSaldoAnteriores"></div>
             </div>
@@ -121,7 +122,7 @@
                     <select name="cajas" class="cajas" id="consultar-MTotalTH">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button" onclick="CalcMTTarjetasHabilitadas()">CARGAR</button>
+                    <button type="button" onclick="CalcMTTarjetasHabilitadas()">CONSULTAR</button>
                 </form>
                 <div class="resultados-off" id="resultadoMTTarjetasH"></div>
             </div>
@@ -132,7 +133,7 @@
                     <select name="cajas" class="cajas" id="consultar-MTotalTD">
                         <option value="" disabled selected>Selecciona una caja</option>
                     </select>
-                    <button type="button" onclick="CalcMTTarjetasDeshabilitadas()">CARGAR</button>
+                    <button type="button" onclick="CalcMTTarjetasDeshabilitadas()">CONSULTAR</button>
                 </form>
                 <div class="resultados-off" id="resultadoMTTarjetasD"></div>
             </div>
