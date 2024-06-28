@@ -5,7 +5,7 @@ const cajas = [
     tarjetas: [
       {
         numero: 1,
-        fecha: "",
+        fecha: "2024-06-27",
         numeroChip: 1,
         saldoAnterior: 0,
         montoCarga: 0,
@@ -13,7 +13,7 @@ const cajas = [
       },
       {
         numero: 2,
-        fecha: "",
+        fecha: "2024-06-27",
         numeroChip: 2,
         saldoAnterior: 0,
         montoCarga: 0,
@@ -93,7 +93,7 @@ const cajas = [
     tarjetas: [
       {
         numero: 9,
-        fecha: "",
+        fecha: "2024-06-27",
         numeroChip: 9,
         saldoAnterior: 0,
         montoCarga: 0,
@@ -101,11 +101,11 @@ const cajas = [
       },
       {
         numero: 10,
-        fecha: "",
+        fecha: "2024-06-27",
         numeroChip: 10,
         saldoAnterior: 0,
         montoCarga: 0,
-        estado: 1,
+        estado: 0,
       },
     ],
   },

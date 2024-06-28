@@ -199,10 +199,33 @@ function ContarTarjetas(){
 
 function CalcTarjetasHabilitadasFecha(){
   //TODO:CALC TARJETAS HABILITADAS POR FECHA
+  
+  const fechaIni = document.getElementById("fecha-inicio").value;
+  const fechaFin = document.getElementById("fecha-fin").value;
+  console.log({fechaIni, fechaFin});
+  let ini = new Date(fechaIni);
+  let fin = new Date(fechaFin);
+
+  let tarjetasHabilitadas = todasTarjetas.filter((tarjeta)=>{
+    return tarjeta.estado == 1;
+  });
+  
+  let TarjetasHRangoFecha = tarjetasHabilitadas.filter((tarjeta) => {
+    let tarjetaFecha = new Date(tarjeta.fecha);
+    return ini <= tarjetaFecha && tarjetaFecha <= fin;
+  });
+
+  console.log({TarjetasHRangoFecha});
+
+  AnimateFeedbackBox("resultadoTHFecha", "La cantidad de tarjetas habilitadas entre esta fecha es: "  + TarjetasHRangoFecha.length);
+  // let tarjetaPruebaFechaDate= new Date(tarjetaPruebaFecha);
+  // console.log({ini, fin, tarjetaPruebaFechaDate});
+
+  // let entreFechas= ini <= tarjetaPruebaFechaDate && tarjetaPruebaFechaDate <= fin;
+  // console.log({entreFechas});
+  // let filtrarFechas = 
 }
 function CalcPromedioCaja(){
-   //TODO:CALC TOTAL promedio tarjetas 
-   //resultadoMTPromedio
 
    const cajaSelect = document.getElementById("consultarPromedioCaja").value;
    console.log({cajaSelect});

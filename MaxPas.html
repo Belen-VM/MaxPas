@@ -31,8 +31,8 @@
                 <hr>
                 <li><a data-target="cantidadT-caja" class="menulink">Cantidad tarjetas por caja</a>
                 </li>
-                <li><a data-target="cantidadT-habilitadas" class="menulink">Cantidad tarjetas
-                        habilitadas </a></li>
+                <li><a data-target="cantidadT-habilitadasFecha" class="menulink">Tarjetas
+                        habilitadas por fecha  </a></li>
                 <li><a data-target="consultar-promedio" class="menulink">Promedio</a></li>
                 <li><a data-target="consultar-saldoA" class="menulink">Monto total saldos
                         anteriores</a></li>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="operaciones" id="habilitada-deshabilitada">
-                <h1> Habilitar o deshabilitar tarjeta</h1>
+                <h1> Habilitar o inhabilitar tarjeta</h1>
                 <form action="">
                     <select name="hd-tarjeta" id="hd-tarjeta" onchange="actualizarFeedbackTarjeta()">
                         <option value="" disabled selected>Selecciona una tarjeta</option>
@@ -64,7 +64,7 @@
                     <div class="resultados-off feedback" id="feedback"></div>
                     <br>
                     <button type="button" onclick="habilitarTarjetaPago()">HABILITAR</button>
-                    <button type="button" onclick="inhabilitarTarjetaPago()">DESHABILITAR</button>
+                    <button type="button" onclick="inhabilitarTarjetaPago()">INHABILITAR</button>
                 </form>
             </div>
 
@@ -83,13 +83,14 @@
                 <div class="resultados-off" id="resultadoCantidadCaja"></div>
             </div>
 
-            <div class="operaciones" id="cantidadT-habilitadas">
+            <div class="operaciones" id="cantidadT-habilitadasFecha">
                 <h1>Consultar cantidad de tarjetas de pago habilitadas por rango de fecha</h1>
                 <form action="">
                     <input type="date" name="fecha-inicio" id="fecha-inicio">
                     <input type="date" name="fecha-fin" id="fecha-fin">
-                    <button type="button">CONSULTAR</button>
+                    <button type="button" onclick="CalcTarjetasHabilitadasFecha()">CONSULTAR</button>
                 </form>
+                <div class="resultados-off" id="resultadoTHFecha"></div>
             </div>
 
             <div class="operaciones" id="consultar-promedio">
